@@ -1,0 +1,47 @@
+.container-box{
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    border: 2px solid;
+    padding: 20px;
+    flex-direction: column;
+}
+
+.user-card{
+    background-color: #b4cad6;
+    border: 2px solid #628091;
+    height: 250px;
+    width: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+button{
+    height: 25px;
+    width: 80px;
+    font-size: 12px;
+}
+
+.cards{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.active-name{
+    color:rgb(24, 129, 24);
+}
+
+.inactive-name{
+    color:rgb(107, 106, 106);
+}
+
+.active-only-button{
+    height: 50px;
+    width: 100px;
+}

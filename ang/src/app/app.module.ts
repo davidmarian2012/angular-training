@@ -3,6 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HelloworldModule } from './helloworld/helloworld.module';
+import { TwowaybindingModule } from './twowaybinding/twowaybinding.module';
+import { UserlistModule } from './userlist/userlist.module';
 
 @NgModule({
   declarations: [
@@ -10,7 +13,10 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HelloworldModule,
+    TwowaybindingModule,
+    UserlistModule
   ],
   providers: [],
   bootstrap: [AppComponent]

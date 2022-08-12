@@ -1,0 +1,6 @@
+<div class="container-box">
+    <button (click)="changeShowOptions()" class="active-only-button">Show only active users</button>
+    <div class="cards">
+        <div class="user-card" *ngFor="let user of users" [hidden]="decider(user)"><h3 *ngIf="user.activated===true" class="active-name">{{user.name}}, {{user.age}} <hr> Online</h3><h3 *ngIf="user.activated===false" class="inactive-name">{{user.name}}, {{user.age}} <hr> Offline</h3> <button (click)="changeStatus(user)">Toggle</button></div>
+    </div>
+</div>
