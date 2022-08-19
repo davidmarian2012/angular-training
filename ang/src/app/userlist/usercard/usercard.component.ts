@@ -9,6 +9,9 @@ import { UserService } from 'src/app/shared/user.service';
 })
 export class UsercardComponent implements OnInit {
   
+  warning: string = 'warning';
+  cancel: string = 'cancel';
+  submit: string = 'submit';
 
   showOnlyActive = false;
   changeShowOptions(){
