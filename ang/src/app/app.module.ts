@@ -6,17 +6,20 @@ import { AppComponent } from './app.component';
 import { HelloworldModule } from './helloworld/helloworld.module';
 import { TwowaybindingModule } from './twowaybinding/twowaybinding.module';
 import { UserlistModule } from './userlist/userlist.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HelloworldModule,
     TwowaybindingModule,
-    UserlistModule
+    UserlistModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

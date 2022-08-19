@@ -1,19 +1,11 @@
 .container-box{
-    margin: 20px 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    border: 2px solid;
-    padding: 20px;
-    flex-direction: column;
+    margin: 30px 0;
+    min-width: 500px;
 }
 
 .user-card{
-    background-color: #b4cad6;
-    border: 2px solid #628091;
-    height: 250px;
-    width: 150px;
+    height: 200px;
+    width: 120px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -21,27 +13,46 @@
 }
 
 button{
-    height: 25px;
-    width: 80px;
     font-size: 12px;
 }
 
 .cards{
     display: flex;
-    gap: 20px;
-    align-items: center;
-    justify-content: center;
+    gap: 3em;
 }
 
 .active-name{
-    color:rgb(24, 129, 24);
+    background-color: rgb(109, 196, 109);
+    border: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .inactive-name{
-    color:rgb(107, 106, 106);
+    background-color: rgb(83, 85, 83);
+    border: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .active-only-button{
-    height: 50px;
-    width: 100px;
+    height: 30px;
+    width: 85px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.toggle-btn{
+    height: 30px;
+    width: 85px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5px 0;
 }
