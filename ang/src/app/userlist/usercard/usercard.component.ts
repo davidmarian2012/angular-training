@@ -8,6 +8,10 @@ import { UserService } from 'src/app/shared/user.service';
   styleUrls: ['./usercard.component.css']
 })
 export class UsercardComponent implements OnInit {
+
+  counter(i: number){
+    return new Array(i);
+  }
   
   warning: string = 'warning';
   cancel: string = 'cancel';

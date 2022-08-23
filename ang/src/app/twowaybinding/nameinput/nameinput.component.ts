@@ -8,6 +8,7 @@ import { User } from 'src/app/user';
 })
 export class NameinputComponent implements OnInit {
   user: User = {
+    id: 4,
     name: "david",
     age: 20,
     gender: 'Male',

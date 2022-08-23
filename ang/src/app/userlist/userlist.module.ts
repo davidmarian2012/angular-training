@@ -5,6 +5,8 @@ import {MatButtonModule} from '@angular/material/button';
 import { UserdetailsComponent } from './userdetails/userdetails.component';
 import { TestbuttonComponent } from './testbutton/testbutton.component';
 
+import { VehiclesModule } from '../vehicles/vehicles.module';
+
 
 @NgModule({
   declarations: [
@@ -15,6 +17,7 @@ import { TestbuttonComponent } from './testbutton/testbutton.component';
   imports: [
     CommonModule,
     MatButtonModule,
+    VehiclesModule,
   ],
   exports: [
     UsercardComponent

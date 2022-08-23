@@ -1,17 +1,21 @@
 <div class="container-box">
-    <button mat-flat-button color="primary" (click)="changeShowOptions()" class="active-only-button">Toggle</button>
+    <button mat-flat-button (click)="changeShowOptions()" class="active-only-button">Toggle</button>
     <div class="cards">
         <div class="user-card-container" *ngFor="let user of users" [hidden]="decider(user)">
             <div *ngIf="user.activated===true" class="active-name user-card">
-                <h3>{{user.name}}</h3>
-                
-                <button mat-flat-button color="primary" (click)="changeStatus(user)" class="toggle-btn">Change status</button>
-                <button mat-flat-button color="primary" (click)="onSelect(user)" class="toggle-btn">Details</button>
+                    <h3>User details</h3>
+                    <div>Name: {{user.name}}</div>
+                    <div>Age: {{user.age}}</div>
+                    <div>Gender: {{user.gender}}</div>
+                    <br/>
+                    <!--<button mat-flat-button color="primary" (click)="onSelect(user)" class="toggle-btn">Details</button>-->
+                    <app-vehicle [selectedId]="user.id"></app-vehicle>
+                    <button mat-flat-button (click)="changeStatus(user)" class="toggle-btn">Change status</button>
             </div>
             <div *ngIf="user.activated===false" class="inactive-name user-card">
                 <h3>{{user.name}}</h3>
-                <button mat-flat-button color="primary" (click)="changeStatus(user)" class="toggle-btn">Change status</button>
-                <button mat-flat-button color="primary" (click)="onSelect(user)" class="toggle-btn">Details</button>
+                <button mat-flat-button (click)="changeStatus(user)" class="toggle-btn">Change status</button>
+                <!--<button mat-flat-button color="primary" (click)="onSelect(user)" class="toggle-btn">Details</button>-->
             </div>
         </div>
     </div>
@@ -22,3 +26,4 @@
 <app-testbutton [type]="warning"></app-testbutton>
 <app-testbutton [type]="cancel"></app-testbutton>
 <app-testbutton [type]="submit"></app-testbutton>
+

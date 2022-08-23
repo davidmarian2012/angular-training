@@ -4,8 +4,8 @@
 }
 
 .user-card{
-    height: 200px;
-    width: 120px;
+    height: 300px;
+    width: 180px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -22,7 +22,7 @@ button{
 }
 
 .active-name{
-    background-color: rgb(109, 196, 109);
+    background-color: rgb(111, 185, 111);
     border: 0;
     display: flex;
     justify-content: center;
@@ -46,13 +46,19 @@ button{
     justify-content: center;
     align-items: center;
     margin: 20px 0;
+    background-color: rgb(139, 96, 163);
+    color: #fff;
+    font-weight: 700;
 }
 
 .toggle-btn{
     height: 30px;
-    width: 85px;
+    width: 90px;
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 5px 0;
+    background-color: rgb(139, 96, 163);
+    color: #fff;
+    font-weight: 700;
 }
