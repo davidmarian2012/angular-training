@@ -1,5 +1,5 @@
-import { Component, OnInit, Input} from '@angular/core';
-import { Vehicle } from 'src/app/vehicle';
+import { Component, OnInit} from '@angular/core';
+import { Vehicle } from '../interfaces/vehicle';
 import { VehicleService } from 'src/app/shared/vehicle.service';
 
 @Component({
@@ -9,12 +9,9 @@ import { VehicleService } from 'src/app/shared/vehicle.service';
 })
 export class VehicleComponent implements OnInit {
 
-  @Input() selectedId?: number;
-
   vehicles: Vehicle[] = [];
   getVehicles(): void{
     this.vehicles = this.vehicleService.getVehicles();
-    console.log(this.vehicles);
   }
 
   constructor(private vehicleService: VehicleService) { }

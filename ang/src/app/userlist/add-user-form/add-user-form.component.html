@@ -1,0 +1,63 @@
+<h2>Add user</h2>
+<form [formGroup]="userform">
+    <div class="form-label">
+        <label>
+            First Name:
+        </label>
+        <input type="text" formControlName="firstName" class="input-text">
+    </div>
+
+    <div class="form-label">
+        <label>
+            Last Name:
+        </label>
+        <input type="text" formControlName="lastName" class="input-text">
+    </div>
+
+    <div class="form-label">
+        <label>
+            Age:
+        </label>
+        <input type="text" formControlName="age" class="input-text" >
+    </div>
+
+    <div class="form-label">
+        <label>
+            Company:
+        </label>
+        <input type="text" formControlName="company" class="input-text">
+    </div>
+
+    <div class="form-label">
+        <label>
+            Department:
+        </label>
+        <select name="departments" id="department-select" formControlName="department">
+            <option value="frontend">Front-end</option>
+            <option value="backend">Back-end</option>
+        </select>
+    </div>
+
+    <div class="form-radio">
+        <fieldset>
+            <legend>Gender:</legend>
+            <div>
+                <input type="radio" id="male" name="gender" value="male" formControlName="gender" checked>
+                <label for="male">Male</label>
+            </div>
+            <div>
+                <input type="radio" id="female" name="gender" value="female" formControlName="gender">
+                <label for="female">Female</label>
+            </div>
+        </fieldset>
+    </div>
+
+    <div class="form-radio">
+        <input type="checkbox" formControlName="active">
+        <label>
+            Active
+        </label>
+    </div>
+
+    <button type="submit" (click)="addUserToList()" routerLink='/users'>Add</button>
+</form>

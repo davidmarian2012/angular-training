@@ -1,10 +1,5 @@
-<div class="cont">
-    <h3>Car details</h3>
-    <div *ngFor="let car of vehicles">
-        <p *ngIf="car.id == selectedId">
-            Name: {{car.name}} <br>
-            Year: {{car.year}} <br>
-            Color: {{car.color}}
-        </p>
-    </div>
+<div *ngFor="let vehicle of vehicles">
+    <app-shared-card [info]="vehicle">
+        Vehicle details:
+    </app-shared-card>
 </div>

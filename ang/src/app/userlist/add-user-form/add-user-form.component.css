@@ -1,0 +1,36 @@
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.form-label{
+    display: flex;
+    flex-direction: column;
+    width: 180px;
+}
+
+.form-radio{
+    width: 180px;
+    margin: 8px 0;
+}
+
+.input-text{
+    height: 25px;
+}
+
+select{
+    height: 30px;
+}
+
+button{
+    width: 180px;
+    height: 30px;
+    border: 0;
+    font-weight: 700;
+    background-color: rgb(112, 165, 112);
+    border: 1px solid rgb(60, 90, 60);
+    color: #fff;
+    cursor: pointer;
+}

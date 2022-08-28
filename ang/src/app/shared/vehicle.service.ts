@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Vehicle } from '../vehicle';
-import { VEHICLES } from '../mock-vehicles';
+import { Vehicle } from '../vehicles/interfaces/vehicle';
+import { VEHICLES } from '../vehicles/mocking/mock-vehicles';
 
 @Injectable({
   providedIn: 'root'

@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NameinputComponent } from './nameinput.component';
+import { SharedCardComponent } from './shared-card.component';
 
-describe('NameinputComponent', () => {
-  let component: NameinputComponent;
-  let fixture: ComponentFixture<NameinputComponent>;
+describe('SharedCardComponent', () => {
+  let component: SharedCardComponent;
+  let fixture: ComponentFixture<SharedCardComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NameinputComponent ]
+      declarations: [ SharedCardComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(NameinputComponent);
+    fixture = TestBed.createComponent(SharedCardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

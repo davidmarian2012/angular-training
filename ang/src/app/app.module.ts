@@ -3,10 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HelloworldModule } from './helloworld/helloworld.module';
-import { TwowaybindingModule } from './twowaybinding/twowaybinding.module';
 import { UserlistModule } from './userlist/userlist.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ViewsModule } from './views/views.module';
 
 
 @NgModule({
@@ -16,10 +15,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HelloworldModule,
-    TwowaybindingModule,
     UserlistModule,
     BrowserAnimationsModule,
+    ViewsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
