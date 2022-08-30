@@ -4,6 +4,7 @@ export interface User{
     age: number;
     company: string;
     department: string;
+    email: string;
     gender: string;
     active: boolean;
 }

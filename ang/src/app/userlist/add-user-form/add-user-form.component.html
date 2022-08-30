@@ -5,13 +5,19 @@
             First Name:
         </label>
         <input type="text" formControlName="firstName" class="input-text">
+        <div *ngIf="this.userform.get('firstName').errors?.['required']" class="red">
+            First Name is required.
+        </div>
     </div>
 
     <div class="form-label">
         <label>
             Last Name:
         </label>
-        <input type="text" formControlName="lastName" class="input-text">
+        <input type="text" formControlName="lastName" class="input-text" required>
+        <div *ngIf="this.userform.get('lastName').errors?.['required']" class="red">
+            Last Name is required.
+        </div>
     </div>
 
     <div class="form-label">
@@ -19,6 +25,15 @@
             Age:
         </label>
         <input type="text" formControlName="age" class="input-text" >
+        <div *ngIf="this.userform.get('age').errors?.['required']" class="red">
+            Age is required.
+        </div>
+        <div *ngIf="this.userform.get('age').errors?.['min']" class="red">
+            Age has to be over 15.
+        </div>
+        <div *ngIf="this.userform.get('age').errors?.['max']" class="red">
+            Age has to be under 100.
+        </div>
     </div>
 
     <div class="form-label">
@@ -26,6 +41,9 @@
             Company:
         </label>
         <input type="text" formControlName="company" class="input-text">
+        <div *ngIf="this.userform.get('company').errors?.['maxLength']" class="red">
+            Company has to be under 35 characters long.
+        </div>
     </div>
 
     <div class="form-label">
@@ -38,18 +56,38 @@
         </select>
     </div>
 
+    <div class="form-label">
+        <label>
+            E-mail address:
+        </label>
+        <input type="text" formControlName="email" class="input-text">
+        <div *ngIf="this.userform.get('email').errors?.['required']" class="red">
+            E-mail is required.
+        </div>
+        <div *ngIf="this.userform.get('email').errors?.['email']" class="red">
+            E-mail format not valid.
+        </div>
+        <div *ngIf="this.userform.get('email').errors?.['pattern']" class="red">
+            Only Gmail allowed.
+        </div>
+    </div>
+
     <div class="form-radio">
         <fieldset>
             <legend>Gender:</legend>
             <div>
-                <input type="radio" id="male" name="gender" value="male" formControlName="gender" checked>
+                <input type="radio" id="male" name="gender" value="Male" formControlName="gender" checked>
                 <label for="male">Male</label>
             </div>
             <div>
-                <input type="radio" id="female" name="gender" value="female" formControlName="gender">
+                <input type="radio" id="female" name="gender" value="Female" formControlName="gender">
                 <label for="female">Female</label>
             </div>
+            
         </fieldset>
+        <div *ngIf="this.userform.get('gender').errors?.['required']" class="red">
+            Gender is required.
+        </div>
     </div>
 
     <div class="form-radio">
@@ -59,5 +97,6 @@
         </label>
     </div>
 
-    <button type="submit" (click)="addUserToList()" routerLink='/users'>Add</button>
+    <button type="submit" (click)='addUserToList()' [disabled]="!userform.valid" routerLink="/users">Add</button>
+    <div *ngIf="!userform.valid" class="red">Form is incomplete!</div>
 </form>

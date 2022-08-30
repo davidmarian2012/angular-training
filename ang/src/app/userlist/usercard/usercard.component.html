@@ -4,15 +4,15 @@
         <div class="user-card-container" *ngFor="let user of users" [hidden]="decider(user)">
             <div *ngIf="user.active===true" class="active-name user-card">
                     <h3>User details</h3>
-                    <div>Name: {{user.firstname}}</div>
+                    <div>First name: {{user.firstname}}</div>
+                    <div>Last name: {{user.lastname}}</div>
                     <div>Age: {{user.age}}</div>
-                    <div>Gender: {{user.gender}}</div>
                     <br/>
                     <!-- <app-vehicle [selectedId]="user.id"></app-vehicle> -->
                     <button mat-flat-button (click)="changeStatus(user)" class="toggle-btn">Change status</button>
             </div>
             <div *ngIf="user.active===false" class="inactive-name user-card">
-                <h3>{{user.name}}</h3>
+                <h3>{{user.firstname}}</h3>
                 <button mat-flat-button (click)="changeStatus(user)" class="toggle-btn">Change status</button>
             </div>
         </div>
