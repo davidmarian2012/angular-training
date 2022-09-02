@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { User } from '../interfaces/user';
 import { USERS } from '../mocking/mock-users';
 import { UserService } from 'src/app/shared/user.service';
@@ -62,8 +62,9 @@ export class AddUserFormComponent implements OnInit {
     this.userService.saveUser(this.userToAdd);
   }
 
-  doesEmailExist(email): Promise<any> | Observable<any>{
+  doesEmailExist(emailControl): Promise<ValidationErrors> | Observable<any>{
     let foundEmail = false;
+    let email = emailControl.value;
 
     USERS.map((user) => {
       if(user.email == email)

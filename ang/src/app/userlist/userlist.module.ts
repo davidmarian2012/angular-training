@@ -9,20 +9,22 @@ import { AddUserFormComponent } from './add-user-form/add-user-form.component';
 
 import { AppRoutingModule } from '../app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AddressFormComponent } from './address-form/address-form.component';
 
 
 @NgModule({
   declarations: [
     UsercardComponent,
     TestbuttonComponent,
-    AddUserFormComponent
+    AddUserFormComponent,
+    AddressFormComponent
   ],
   imports: [
     CommonModule,
     MatButtonModule,
     VehiclesModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   exports: [
     UsercardComponent

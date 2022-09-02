@@ -70,6 +70,9 @@
         <div *ngIf="this.userform.get('email').errors?.['pattern']" class="red">
             Only Gmail allowed.
         </div>
+        <div *ngIf="this.userform.get('email').errors?.['doesEmailExist']" class="red">
+            E-mail already registered.
+        </div>
     </div>
 
     <div class="form-radio">
@@ -96,6 +99,8 @@
             Active
         </label>
     </div>
+
+    <app-address-form></app-address-form>
 
     <button type="submit" (click)='addUserToList()' [disabled]="!userform.valid" routerLink="/users">Add</button>
     <div *ngIf="!userform.valid" class="red">Form is incomplete!</div>

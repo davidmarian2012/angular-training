@@ -7,7 +7,6 @@ import { UserlistModule } from './userlist/userlist.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ViewsModule } from './views/views.module';
 
-
 @NgModule({
   declarations: [
     AppComponent,
