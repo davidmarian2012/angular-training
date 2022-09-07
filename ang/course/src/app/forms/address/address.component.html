@@ -1,0 +1,32 @@
+<h3>Add address</h3>
+
+<div [formGroup]="form">
+    <ng-container formArrayName="addresses">
+        <ng-container  *ngFor="let addressForm of addresses.controls; let i = index">
+            <div class="address-form-row" [formGroupName]="i">
+
+                    <div class="form-row">
+                        <label>Address Line</label>
+                        <input formControlName="addressLine">   
+                     </div>
+
+                     <div class="form-row">
+                        <label>City</label>
+                        <input formControlName="city">  
+                    </div>  
+
+                    <div class="form-row">
+                        <label>Zip</label>
+                        <input formControlName="zip">    
+                    </div>
+
+                <mat-icon class="delete-btn" (click)="deleteAddress(i)">delete_forever</mat-icon>
+            </div>
+
+        </ng-container>
+    </ng-container>
+
+    <button mat-mini-fab (click)="addAddress()">
+        <mat-icon class="add-course-btn">add</mat-icon>
+    </button>
+</div>

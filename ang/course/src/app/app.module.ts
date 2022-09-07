@@ -8,19 +8,30 @@ import { HeaderComponent } from './display/header/header.component';
 import { UsersComponent } from './display/users/users.component';
 import { AdduserComponent } from './display/adduser/adduser.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MatIconModule} from '@angular/material/icon'
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { EdituserComponent } from './display/edituser/edituser.component';
+import { UserComponent } from './forms/user/user.component';
+import { AddressComponent } from './forms/address/address.component'
+
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     UsersComponent,
-    AdduserComponent
+    AdduserComponent,
+    EdituserComponent,
+    UserComponent,
+    AddressComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatIconModule,
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]

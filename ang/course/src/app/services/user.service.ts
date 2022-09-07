@@ -15,5 +15,15 @@ export class UserService {
     USERS.push(user);
   }
 
+  getUserById(id): any{
+    let userToReturn: any = false;
+    USERS.map((user)=>{
+      if(user.id==id){
+        userToReturn = user;
+      }
+    })
+    return userToReturn;
+  }
+
   constructor() { }
 }

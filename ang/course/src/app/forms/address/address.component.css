@@ -1,0 +1,14 @@
+.address-form-row{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form-row{
+    display: flex;
+    flex-direction: column;
+}
+
+input{
+    height: 25px;
+}
