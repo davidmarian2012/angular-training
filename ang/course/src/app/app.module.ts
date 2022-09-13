@@ -12,7 +12,9 @@ import {MatIconModule} from '@angular/material/icon'
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { EdituserComponent } from './display/edituser/edituser.component';
 import { UserComponent } from './forms/user/user.component';
-import { AddressComponent } from './forms/address/address.component'
+import { AddressComponent } from './forms/address/address.component';
+import { UserlistComponent } from './display/userlist/userlist.component';
+import { AuthModule } from './auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { AddressComponent } from './forms/address/address.component'
     AdduserComponent,
     EdituserComponent,
     UserComponent,
-    AddressComponent
+    AddressComponent,
+    UserlistComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,7 +34,8 @@ import { AddressComponent } from './forms/address/address.component'
     FormsModule,
     ReactiveFormsModule,
     MatIconModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    AuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]

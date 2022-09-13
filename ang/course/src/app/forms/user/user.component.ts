@@ -6,6 +6,17 @@ import { User } from 'src/app/interfaces/User';
 import { USERS } from 'src/app/mocking/Users';
 import { UserService } from 'src/app/services/user.service';
 
+interface UserForm{
+  firstName: FormControl<string>,
+  lastName: FormControl<string>,
+  age: FormControl<number>,
+  company: FormControl<string>,
+  department: FormControl<string>,
+  email: FormControl<string>,
+  gender: FormControl<string>,
+  active: FormControl<boolean>
+}
+
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
@@ -18,7 +29,7 @@ export class UserComponent implements OnInit {
   id = this.route.snapshot.params['id'];
   selecteduser = this.userService.getUserById(this.id);
 
-  userform = new FormGroup({
+  userform = new FormGroup<UserForm>({
     firstName: new FormControl('', [
       Validators.required
     ]),
@@ -93,6 +104,8 @@ export class UserComponent implements OnInit {
     this.userToAdd.active = this.userform.get('active')!.value!;
     
     this.userService.saveUser(this.userToAdd);
+
+    //this.userService.saveUser(this.userform.getRawValue());
   }
 
   updateUser(){
