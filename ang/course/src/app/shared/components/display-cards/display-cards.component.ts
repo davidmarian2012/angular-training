@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { User } from '../../interfaces/user';
+import { User } from 'src/app/user/interfaces/user';
 
 @Component({
   selector: 'app-display-cards',

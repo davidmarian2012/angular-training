@@ -6,6 +6,12 @@ import { Account } from '../../interfaces/Account';
 import { ACCOUNTS } from '../../mocks/accounts';
 import { AccountService } from '../../services/account.service';
 
+interface RegisterForm{
+  username: FormControl<string>,
+  password: FormControl<string>,
+  confirmPassword: FormControl<string>
+}
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -13,7 +19,7 @@ import { AccountService } from '../../services/account.service';
 })
 export class RegisterComponent implements OnInit {
 
-  registerForm = new FormGroup({
+  registerForm = new FormGroup<RegisterForm>({
     username: new FormControl('', [
       Validators.required
     ]),
@@ -38,7 +44,7 @@ export class RegisterComponent implements OnInit {
 
     console.log(ACCOUNTS);
 
-    //this.userService.saveUser(this.userform.getRawValue());
+    //this.accountService.saveAccount(this.registerForm.getRawValue());
   }
 
   constructor(private accountService: AccountService) { }
