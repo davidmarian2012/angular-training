@@ -105,8 +105,7 @@
         </label>
     </div>
 
-
-    <div *ngIf="newUser==true"><button type="submit" (click)='addUserToList()' [disabled]="!userform.valid" routerLink="/users">Add</button></div>
+    <div *ngIf="newUser==true"><button mat-flat-button type="submit" (click)='addUserToList()' [disabled]="!userform.valid" routerLink="/users">Add</button></div>
     <div *ngIf="newUser==false"><button type="submit" (click)='updateUser()' [disabled]="!userform.valid" routerLink="/users">Update</button></div>
     <div *ngIf="!userform.valid" class="red">Form is incomplete!</div>
 </form>

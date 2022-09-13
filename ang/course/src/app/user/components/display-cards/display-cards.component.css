@@ -1,3 +1,10 @@
+.container-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .user-card{
     height: 200px;
     width: 200px;

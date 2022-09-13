@@ -1,4 +1,4 @@
-<h3>Login</h3>
+<h2>Login</h2>
 
 <div [formGroup]="accountForm">
     <div class="form-row">
@@ -11,10 +11,5 @@
         <input formControlName="password">  
     </div>  
 
-    <div class="form-row">
-        <label>Confirm password:</label>
-        <input formControlName="confirmPassword">    
-    </div>
-
-    <button type="submit" (click)="tryLogin()">Login</button>
+    <button mat-flat-button type="submit" (click)="tryLogin()">Login</button>
 </div>

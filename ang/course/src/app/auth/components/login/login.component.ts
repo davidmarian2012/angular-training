@@ -18,33 +18,23 @@ export class LoginComponent implements OnInit {
     ]),
     password: new FormControl('', [
       Validators.required
-    ]),
-    confirmPassword: new FormControl('', [
-      Validators.required
     ])
   })
 
   tryLogin(): any{
-    if(this.accountForm.get('password')!.value! == this.accountForm.get('confirmPassword')!.value!)
-    {
-        ACCOUNTS.map((account) => {
-          if(account.username == this.accountForm.get('username')!.value!)
+      ACCOUNTS.map((account) => {
+        if(account.username == this.accountForm.get('username')!.value!)
+        {
+          if(account.password == this.accountForm.get('password')!.value!)
           {
-            if(account.password == this.accountForm.get('password')!.value!)
-            {
-              console.log('success');
-            }
-            else
-            {
-              console.log("failure");
-            }
+            console.log('success');
           }
-        })
-    }
-    else
-    {
-      console.log("failure");
-    }
+          else
+          {
+            console.log("failure");
+          }
+        }
+      })
   }
 
   constructor() { }

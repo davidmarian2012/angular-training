@@ -1,5 +1,6 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { User } from '../../interfaces/user';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-user-list-shell',
@@ -8,26 +9,35 @@ import { User } from '../../interfaces/user';
 })
 export class UserListShellComponent implements OnInit {
 
-  @Input() users: User[];
-  @Output() decide = new EventEmitter<User>();
-  @Output() change = new EventEmitter<User>();
-  @Output() showOptions = new EventEmitter();
-
-  decider(user: User){
-    this.decide.emit(user);
+  showOnlyActive = false;
+  changeShowOptions(){
+    this.showOnlyActive = !this.showOnlyActive;
   }
 
   changeStatus(user: User){
-    this.change.emit(user);
+    user.active = !user.active;
   }
 
-  changeShowOptions(){
-    this.showOptions.emit();
+  decider(user: User){
+    if(this.showOnlyActive == false) return false;
+    return !user.active;
   }
 
-  constructor() { }
+  users: User[] = [];
+  getUsers(): void{
+    this.users = this.userService.getUsers();
+  }
+
+  selectedUser?: User;
+  onSelect(user: User): void{
+    this.selectedUser = user;
+    console.log(user);
+  }
+
+  constructor(private userService: UserService) { }
 
   ngOnInit(): void {
+    this.getUsers();
   }
 
 }

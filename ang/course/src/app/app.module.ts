@@ -8,6 +8,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatIconModule} from '@angular/material/icon'
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { AuthModule } from './auth/auth.module';
+import { UserModule } from './user/user.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { AuthModule } from './auth/auth.module';
     ReactiveFormsModule,
     MatIconModule,
     MatFormFieldModule,
-    AuthModule
+    AuthModule,
+    UserModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

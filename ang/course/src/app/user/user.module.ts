@@ -7,6 +7,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AddUserShellComponent } from './containers/add-user-shell/add-user-shell.component';
 import { EditUserShellComponent } from './containers/edit-user-shell/edit-user-shell.component';
 import { UserListShellComponent } from './containers/user-list-shell/user-list-shell.component';
+import { DisplayCardsComponent } from './components/display-cards/display-cards.component';
+import { AppRoutingModule } from '../app-routing.module';
 
 @NgModule({
   declarations: [
@@ -14,12 +16,19 @@ import { UserListShellComponent } from './containers/user-list-shell/user-list-s
     UserFormComponent,
     AddUserShellComponent,
     EditUserShellComponent,
-    UserListShellComponent
+    UserListShellComponent,
+    DisplayCardsComponent
   ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
     MatIconModule,
+    AppRoutingModule
+  ],
+  exports: [
+    AddUserShellComponent,
+    EditUserShellComponent,
+    UserListShellComponent
   ]
 })
 export class UserModule { }

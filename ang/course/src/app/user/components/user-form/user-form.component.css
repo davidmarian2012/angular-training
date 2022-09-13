@@ -25,13 +25,17 @@ select{
 }
 
 button{
-    width: 180px;
     height: 30px;
-    border: 0;
-    font-weight: 700;
-    background-color: rgb(112, 165, 112);
-    border: 1px solid rgb(60, 90, 60);
+    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5px 0;
+    background-color: rgb(54, 54, 54);
+    border: 1px solid black;
+    border-radius: 3px;
     color: #fff;
+    font-weight: 700;
     cursor: pointer;
 }
 

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderBarComponent } from './components/header-bar/header-bar.component';
-
+import { AppRoutingModule } from '../app-routing.module';
 
 
 @NgModule({
@@ -9,7 +9,11 @@ import { HeaderBarComponent } from './components/header-bar/header-bar.component
     HeaderBarComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    AppRoutingModule
+  ],
+  exports: [
+    HeaderBarComponent
   ]
 })
 export class SharedModule { }

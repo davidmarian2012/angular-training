@@ -1,1 +1,20 @@
-<p>register works!</p>
+<h2>Register</h2>
+
+<div [formGroup]="registerForm">
+    <div class="form-row">
+        <label>Username:</label>
+        <input formControlName="username">   
+        </div>
+
+        <div class="form-row">
+        <label>Password:</label>
+        <input formControlName="password">  
+    </div>  
+
+    <div class="form-row">
+        <label>Confirm password:</label>
+        <input formControlName="confirmPassword">    
+    </div>
+
+    <button mat-flat-button type="submit" (click)="registerUser()" routerLink="/users">Register</button>
+</div>
