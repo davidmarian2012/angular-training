@@ -3,7 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { FormControl } from '@angular/forms';
 import { Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ACCOUNTS } from '../../mocks/accounts';
+import { AccountService } from '../../services/account.service';
 
 @Component({
   selector: 'app-login',
@@ -27,6 +29,8 @@ export class LoginComponent implements OnInit {
         {
           if(account.password == this.accountForm.get('password')!.value!)
           {
+            this.accountService.login();
+            this.router.navigate(['/users']);
             console.log('success');
           }
           else
@@ -37,7 +41,7 @@ export class LoginComponent implements OnInit {
       })
   }
 
-  constructor() { }
+  constructor(private accountService: AccountService, private router: Router) { }
 
   ngOnInit(): void {
   }

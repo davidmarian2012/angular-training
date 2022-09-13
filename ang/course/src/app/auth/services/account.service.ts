@@ -7,12 +7,26 @@ import { ACCOUNTS } from '../mocks/accounts';
 })
 export class AccountService {
 
+  isLogged: boolean = false;
+
   getAccounts(): Account[]{
     return ACCOUNTS;
   }
 
   saveAccount(account: Account): any{
     ACCOUNTS.push(account);
+  }
+
+  login(): any{
+    this.isLogged = true;
+  }
+
+  logout(): any{
+    this.isLogged = false;
+  }
+
+  isUserLogged(): boolean{
+    return this.isLogged;
   }
 
   constructor() { }

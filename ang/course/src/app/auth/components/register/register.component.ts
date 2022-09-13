@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { FormControl } from '@angular/forms';
 import { Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Account } from '../../interfaces/Account';
 import { ACCOUNTS } from '../../mocks/accounts';
 import { AccountService } from '../../services/account.service';
@@ -40,14 +41,22 @@ export class RegisterComponent implements OnInit {
     this.accountRegister.username = this.registerForm.get('username')!.value!;
     this.accountRegister.password = this.registerForm.get('password')!.value!;
     
-    this.accountService.saveAccount(this.accountRegister);
-
-    console.log(ACCOUNTS);
+    if(this.registerForm.get('confirmPassword')!.value! == this.registerForm.get('password')!.value!)
+    {
+      window.alert("Account created successfuly!");
+      this.accountService.saveAccount(this.accountRegister);
+      this.router.navigate(['/login']);
+    }
+    else
+    {
+      window.alert("Passwords do not match!");
+    }
+    
 
     //this.accountService.saveAccount(this.registerForm.getRawValue());
   }
 
-  constructor(private accountService: AccountService) { }
+  constructor(private accountService: AccountService, private router: Router) { }
 
   ngOnInit(): void {
   }
