@@ -1,10 +1,9 @@
 import { Injectable } from "@angular/core";
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from "@angular/router";
-import { Observable } from "rxjs";
-import { AccountService } from "./auth/services/account.service";
+import { AccountService } from "./account.service";
 
 @Injectable()
-export class GuardService implements CanActivate{
+export class AuthGuard implements CanActivate{
 
     constructor(private accountService: AccountService, private router: Router){}
 
@@ -15,9 +14,10 @@ export class GuardService implements CanActivate{
         }
         else
         {
-            window.alert("You must login first!");
-            this.router.navigate(['']);
-            return false;
+            return true;
+            // window.alert("You must login first!");
+            // this.router.navigate(['']);
+            // return false;
         }
     }
 }

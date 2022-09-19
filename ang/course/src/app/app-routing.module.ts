@@ -5,14 +5,18 @@ import { EditUserShellComponent } from './user/containers/edit-user-shell/edit-u
 import { UserListShellComponent } from './user/containers/user-list-shell/user-list-shell.component';
 import { LoginComponent } from './auth/components/login/login.component';
 import { RegisterComponent } from './auth/components/register/register.component';
-import { GuardService } from './guard.service';
+import { AuthGuard } from './auth/services/auth.guard';
+import { CompanyInfoShellComponent } from './user/containers/company-info-shell/company-info-shell.component';
+import { ContactInfoShellComponent } from './user/containers/contact-info-shell/contact-info-shell.component';
 
 const routes: Routes = [
-  {path:'users', component: UserListShellComponent, canActivate: [GuardService]},
-  {path:'add', component: AddUserShellComponent, canActivate: [GuardService]},
+  {path:'users', component: UserListShellComponent, canActivate: [AuthGuard]},
+  {path:'add', component: AddUserShellComponent, canActivate: [AuthGuard]},
   {path:'login', component: LoginComponent},
   {path:'register', component: RegisterComponent},
-  {path:'edit/:id', component: EditUserShellComponent, canActivate: [GuardService]},
+  {path:'edit/:id', component: EditUserShellComponent, canActivate: [AuthGuard]},
+  {path:'contact-info/:id', component: ContactInfoShellComponent},
+  {path:'company-info/:id', component: CompanyInfoShellComponent},
   {path:'', redirectTo: '/login', pathMatch: 'full'}
 ];
 

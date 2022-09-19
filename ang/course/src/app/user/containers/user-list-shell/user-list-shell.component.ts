@@ -28,13 +28,11 @@ export class UserListShellComponent implements OnInit {
     this.users = this.userService.getUsers();
   }
 
-  selectedUser?: User;
-  onSelect(user: User): void{
-    this.selectedUser = user;
-    console.log(user);
-  }
-
   constructor(private userService: UserService) { }
+
+  onSelect(user: User): any{
+    this.userService.currentUser = user;
+  }
 
   ngOnInit(): void {
     this.getUsers();

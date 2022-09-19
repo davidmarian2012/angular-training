@@ -7,6 +7,8 @@ import { USERS } from '../mocks/Users';
 })
 export class UserService {
 
+  currentUser: User;
+
   getUsers(): User[]{
     return USERS;
   }

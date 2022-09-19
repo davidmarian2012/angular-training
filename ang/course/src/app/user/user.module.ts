@@ -8,6 +8,10 @@ import { AddUserShellComponent } from './containers/add-user-shell/add-user-shel
 import { EditUserShellComponent } from './containers/edit-user-shell/edit-user-shell.component';
 import { UserListShellComponent } from './containers/user-list-shell/user-list-shell.component';
 import { AppRoutingModule } from '../app-routing.module';
+import { ContactInfoComponent } from './components/contact-info/contact-info.component';
+import { CompanyInfoComponent } from './components/company-info/company-info.component';
+import { ContactInfoShellComponent } from './containers/contact-info-shell/contact-info-shell.component';
+import { CompanyInfoShellComponent } from './containers/company-info-shell/company-info-shell.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +20,10 @@ import { AppRoutingModule } from '../app-routing.module';
     AddUserShellComponent,
     EditUserShellComponent,
     UserListShellComponent,
+    ContactInfoComponent,
+    CompanyInfoComponent,
+    ContactInfoShellComponent,
+    CompanyInfoShellComponent,
   ],
   imports: [
     CommonModule,
@@ -26,7 +34,9 @@ import { AppRoutingModule } from '../app-routing.module';
   exports: [
     AddUserShellComponent,
     EditUserShellComponent,
-    UserListShellComponent
+    UserListShellComponent,
+    ContactInfoShellComponent,
+    CompanyInfoShellComponent
   ]
 })
 export class UserModule { }

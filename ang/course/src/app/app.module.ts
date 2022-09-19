@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { GuardService } from './guard.service';
+import { AuthGuard } from './auth/services/auth.guard';
 import { AccountService } from './auth/services/account.service';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -30,7 +30,7 @@ import { SharedModule } from './shared/shared.module';
     UserModule,
     SharedModule
   ],
-  providers: [GuardService, AccountService],
+  providers: [AuthGuard, AccountService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

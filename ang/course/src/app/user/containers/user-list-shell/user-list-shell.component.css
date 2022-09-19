@@ -69,3 +69,7 @@ button{
 mat-icon{
     cursor: pointer;
 }
+
+a{
+    color: #000;
+}
