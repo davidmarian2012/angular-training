@@ -12,6 +12,7 @@ import { ContactInfoComponent } from './components/contact-info/contact-info.com
 import { CompanyInfoComponent } from './components/company-info/company-info.component';
 import { ContactInfoShellComponent } from './containers/contact-info-shell/contact-info-shell.component';
 import { CompanyInfoShellComponent } from './containers/company-info-shell/company-info-shell.component';
+import {MatTabsModule} from '@angular/material/tabs'
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { CompanyInfoShellComponent } from './containers/company-info-shell/compa
     CommonModule,
     ReactiveFormsModule,
     MatIconModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatTabsModule
   ],
   exports: [
     AddUserShellComponent,

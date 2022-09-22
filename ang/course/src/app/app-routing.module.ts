@@ -10,13 +10,17 @@ import { CompanyInfoShellComponent } from './user/containers/company-info-shell/
 import { ContactInfoShellComponent } from './user/containers/contact-info-shell/contact-info-shell.component';
 
 const routes: Routes = [
-  {path:'users', component: UserListShellComponent, canActivate: [AuthGuard]},
+  {path:'users', component: UserListShellComponent, canActivate: [AuthGuard],
+  children: [
+    {path:'contact-info/:id', component: ContactInfoShellComponent},
+    {path:'company-info/:id', component: CompanyInfoShellComponent}
+  ]},
   {path:'add', component: AddUserShellComponent, canActivate: [AuthGuard]},
   {path:'login', component: LoginComponent},
   {path:'register', component: RegisterComponent},
   {path:'edit/:id', component: EditUserShellComponent, canActivate: [AuthGuard]},
-  {path:'contact-info/:id', component: ContactInfoShellComponent},
-  {path:'company-info/:id', component: CompanyInfoShellComponent},
+  // {path:'contact-info/:id', component: ContactInfoShellComponent},
+  // {path:'company-info/:id', component: CompanyInfoShellComponent},
   {path:'', redirectTo: '/login', pathMatch: 'full'}
 ];
 

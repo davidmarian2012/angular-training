@@ -8,19 +8,25 @@
                     <div>Name: {{user.firstname}} {{user.lastname}}</div>
                     <div>Status: Active</div>
                     <br/>
-                    <div><a [routerLink]="['/contact-info', user.id]" (click)="onSelect(user)">Contact Info</a> | <a [routerLink]="['/company-info', user.id]" (click)="onSelect(user)">Company Info</a></div>
-                    <br/>
                     <button mat-flat-button (click)="changeStatus(user)" class="toggle-btn">Change status</button>
+                    <nav mat-tab-nav-bar>
+                        <a mat-tab-link [routerLink]="['/users/contact-info', user.id]" (click)="onSelect(user)">Contact Info</a>
+                        <a mat-tab-link [routerLink]="['/users/company-info', user.id]" (click)="onSelect(user)">Company Info</a>
+                    </nav>
             </div>
             <div *ngIf="user.active===false" class="inactive-name user-card">
                     <h3>User details<mat-icon [routerLink]="['/edit', user.id]">edit</mat-icon></h3>
                     <div>Name: {{user.firstname}} {{user.lastname}}</div>
                     <div>Status: Inactive</div>
                     <br/>
-                    <div><a [routerLink]="['/contact-info', user.id]" (click)="onSelect(user)">Contact Info</a> | <a [routerLink]="['/company-info', user.id]" (click)="onSelect(user)">Company Info</a></div>
-                    <br/>
                     <button mat-flat-button (click)="changeStatus(user)" class="toggle-btn">Change status</button>
+                    <nav mat-tab-nav-bar>
+                        <a mat-tab-link [routerLink]="['/users/contact-info', user.id]" (click)="onSelect(user)">Contact Info</a>
+                        <a mat-tab-link [routerLink]="['/users/company-info', user.id]" (click)="onSelect(user)">Company Info</a>
+                    </nav>
             </div>
         </div>
     </div>
 </div>
+
+<router-outlet></router-outlet>

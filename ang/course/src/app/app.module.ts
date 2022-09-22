@@ -10,6 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatIconModule} from '@angular/material/icon'
 import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatTabsModule} from '@angular/material/tabs'
 import { AuthModule } from './auth/auth.module';
 import { UserModule } from './user/user.module';
 import { SharedModule } from './shared/shared.module';
@@ -25,6 +26,7 @@ import { SharedModule } from './shared/shared.module';
     FormsModule,
     ReactiveFormsModule,
     MatIconModule,
+    MatTabsModule,
     MatFormFieldModule,
     AuthModule,
     UserModule,
