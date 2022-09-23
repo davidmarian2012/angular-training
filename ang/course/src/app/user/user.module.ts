@@ -12,7 +12,8 @@ import { ContactInfoComponent } from './components/contact-info/contact-info.com
 import { CompanyInfoComponent } from './components/company-info/company-info.component';
 import { ContactInfoShellComponent } from './containers/contact-info-shell/contact-info-shell.component';
 import { CompanyInfoShellComponent } from './containers/company-info-shell/company-info-shell.component';
-import {MatTabsModule} from '@angular/material/tabs'
+import {MatTabsModule} from '@angular/material/tabs';
+import { AgechangePipe } from './pipes/agechange.pipe'
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import {MatTabsModule} from '@angular/material/tabs'
     CompanyInfoComponent,
     ContactInfoShellComponent,
     CompanyInfoShellComponent,
+    AgechangePipe,
   ],
   imports: [
     CommonModule,

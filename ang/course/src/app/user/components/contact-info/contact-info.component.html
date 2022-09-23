@@ -2,7 +2,7 @@
     <h2>{{user.firstname}}'s Contact Info</h2>
     <p>First Name: {{user.firstname}}</p>
     <p>Last Name: {{user.lastname}}</p>
-    <p>Age: {{user.age}}</p>
+    <p>Age: {{user.age | agechange}}</p>
     <p>Email: {{user.email}}</p>
     <a routerLink="/users">Close</a>
 </div>
