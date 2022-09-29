@@ -16,7 +16,7 @@ const routes: Routes = [
     {path:'company-info/:id', component: CompanyInfoShellComponent}
   ]},
   {path:'add', component: AddUserShellComponent, canActivate: [AuthGuard]},
-  {path:'login', component: LoginComponent, loadChildren:() => import('./user/user.module').then(m=>m.UserModule)},
+  {path:'login', component: LoginComponent},
   {path:'register', component: RegisterComponent},
   {path:'edit/:id', component: EditUserShellComponent, canActivate: [AuthGuard]},
   // {path:'contact-info/:id', component: ContactInfoShellComponent},

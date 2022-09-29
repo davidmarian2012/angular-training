@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { PageEvent } from '@angular/material/paginator';
+import { map, Observable } from 'rxjs';
 import { User } from '../../interfaces/user';
 import { UserService } from '../../services/user.service';
+import { Info } from '../../interfaces/info';
 
 @Component({
   selector: 'app-user-list-shell',
@@ -8,6 +11,38 @@ import { UserService } from '../../services/user.service';
   styleUrls: ['./user-list-shell.component.css']
 })
 export class UserListShellComponent implements OnInit {
+
+  users$: User[] = [];
+  cardInfo$ = Observable<Info[]>;
+
+  public pageSlice = this.users$.slice(0,3);
+
+  getColor(status: boolean): string{
+    if(status == true)
+    {
+      return "rgb(111, 158, 111)";
+    }
+
+    return "rgb(115, 117, 115)";
+  }
+
+  getStatus(status: boolean): string{
+    if(status == true)
+    {
+      return "Active";
+    }
+
+    return "Inactive";
+  }
+
+  OnPageChange(event: PageEvent){
+    const startIndex = event.pageIndex * event.pageSize;
+    let endIndex = startIndex + event.pageSize;
+    if(endIndex > this.users$.length){
+      endIndex = this.users$.length;
+    }
+    this.pageSlice = this.users$.slice(startIndex, endIndex);
+  }
 
   showOnlyActive = false;
   changeShowOptions(){
@@ -23,9 +58,20 @@ export class UserListShellComponent implements OnInit {
     return !user.active;
   }
 
-  users: User[] = [];
+  // getUsers(): void{
+  //   this.cardInfos$ = this.userService.getUsers()
+  //   .pipe(
+  //     map(users => users.map(u => {
+  //       return <Info>{
+  //         name: u.firstname,
+  //         status: u.active
+  //       }
+  //     }))
+  //   )
+  // }
+
   getUsers(): void{
-    this.users = this.userService.getUsers();
+    this.users$ = this.userService.getUsers();
   }
 
   constructor(private userService: UserService) { }

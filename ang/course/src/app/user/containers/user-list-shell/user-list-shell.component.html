@@ -1,32 +1,37 @@
 <h2>Users</h2>
 <div class="container-box">
     <button mat-flat-button  class="active-only-button" (click)="changeShowOptions()">Toggle</button>
-    <div class="cards">
-        <div class="user-card-container" *ngFor="let user of users" [hidden]="decider(user)">
-            <div *ngIf="user.active===true" class="active-name user-card">
-                    <h3>User details<mat-icon [routerLink]="['/edit', user.id]">edit</mat-icon></h3>
+    <div class="user-list">
+        <div class="user-card-container" *ngFor="let user of users$" [hidden]="decider(user)">
+            <div class="user-card" [style.background-color]="getColor(user.active)">
+
+                    <h3>
+                        User details
+                        <mat-icon [routerLink]="['/edit', user.id]">
+                            edit
+                        </mat-icon>
+                    </h3>
+
                     <div>Name: {{user.firstname}} {{user.lastname}}</div>
-                    <div>Status: Active</div>
+                    <div>Status: {{getStatus(user.active)}}</div>
+
                     <br/>
+
                     <button mat-flat-button (click)="changeStatus(user)" class="toggle-btn">Change status</button>
                     <nav mat-tab-nav-bar>
                         <a mat-tab-link [routerLink]="['/users/contact-info', user.id]" (click)="onSelect(user)">Contact Info</a>
                         <a mat-tab-link [routerLink]="['/users/company-info', user.id]" (click)="onSelect(user)">Company Info</a>
                     </nav>
             </div>
-            <div *ngIf="user.active===false" class="inactive-name user-card">
-                    <h3>User details<mat-icon [routerLink]="['/edit', user.id]">edit</mat-icon></h3>
-                    <div>Name: {{user.firstname}} {{user.lastname}}</div>
-                    <div>Status: Inactive</div>
-                    <br/>
-                    <button mat-flat-button (click)="changeStatus(user)" class="toggle-btn">Change status</button>
-                    <nav mat-tab-nav-bar>
-                        <a mat-tab-link [routerLink]="['/users/contact-info', user.id]" (click)="onSelect(user)">Contact Info</a>
-                        <a mat-tab-link [routerLink]="['/users/company-info', user.id]" (click)="onSelect(user)">Company Info</a>
-                    </nav>
-            </div>
-        </div>
+        </div>        
     </div>
+
+    <mat-paginator [length]="this.users$.length"
+              [pageSize]="3"
+              [pageSizeOptions]="[3,5,10]"
+              (page)="OnPageChange($event)"
+              aria-label="Select page">
+    </mat-paginator>
 </div>
 
 <router-outlet></router-outlet>

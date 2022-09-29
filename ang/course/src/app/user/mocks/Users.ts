@@ -18,7 +18,7 @@ export const USERS: User[] = [
       lastname: 'Gomez',
       age: 31,
       company: 'Apple',
-      department: '',
+      department: 'backend',
       email: 'acc2@gmail.com',
       gender: 'Female',
       active: true
@@ -29,7 +29,18 @@ export const USERS: User[] = [
       lastname: 'Benson',
       age: 22,
       company: 'Google',
-      department: '',
+      department: 'backend',
+      email: 'acc3@gmail.com',
+      gender: 'Male',
+      active: true
+    },
+    {
+      id: 4,
+      firstname: 'Joe',
+      lastname: 'Benson',
+      age: 22,
+      company: 'Google',
+      department: 'backend',
       email: 'acc3@gmail.com',
       gender: 'Male',
       active: true

@@ -3,35 +3,18 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+
+    border-radius: 5px;
+    
 }
 
 button{
     font-size: 12px;
 }
 
-.cards{
+.user-list{
     display: flex;
     gap: 3em;
-}
-
-.active-name{
-    background-color: rgb(111, 158, 111);
-    border-radius: 5px;
-    border: 2px solid rgb(88, 126, 96);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-.inactive-name{
-    background-color: rgb(115, 117, 115);
-    border-radius: 5px;
-    border: 2px solid rgb(87, 88, 87);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
 }
 
 .active-only-button{
@@ -70,4 +53,8 @@ mat-icon{
 
 a{
     color: #000;
+}
+
+h3{
+    font-weight: 500;
 }
