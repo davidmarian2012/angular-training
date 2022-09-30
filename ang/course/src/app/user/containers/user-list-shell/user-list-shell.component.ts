@@ -12,10 +12,10 @@ import { Info } from '../../interfaces/info';
 })
 export class UserListShellComponent implements OnInit {
 
-  users$: User[] = [];
+  users: User[] = [];
   cardInfo$ = Observable<Info[]>;
 
-  public pageSlice = this.users$.slice(0,3);
+  public pageSlice; 
 
   getColor(status: boolean): string{
     if(status == true)
@@ -38,10 +38,10 @@ export class UserListShellComponent implements OnInit {
   OnPageChange(event: PageEvent){
     const startIndex = event.pageIndex * event.pageSize;
     let endIndex = startIndex + event.pageSize;
-    if(endIndex > this.users$.length){
-      endIndex = this.users$.length;
+    if(endIndex > this.users.length){
+      endIndex = this.users.length;
     }
-    this.pageSlice = this.users$.slice(startIndex, endIndex);
+    this.pageSlice = this.users.slice(startIndex, endIndex);
   }
 
   showOnlyActive = false;
@@ -71,7 +71,7 @@ export class UserListShellComponent implements OnInit {
   // }
 
   getUsers(): void{
-    this.users$ = this.userService.getUsers();
+    this.users = this.userService.getUsers();
   }
 
   constructor(private userService: UserService) { }
@@ -82,6 +82,7 @@ export class UserListShellComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUsers();
+    this.pageSlice = this.users.slice(0,3);
   }
 
 }

@@ -1,8 +1,8 @@
-<h2>Users</h2>
 <div class="container-box">
+    <h2>Users</h2>
     <button mat-flat-button  class="active-only-button" (click)="changeShowOptions()">Toggle</button>
     <div class="user-list">
-        <div class="user-card-container" *ngFor="let user of users$" [hidden]="decider(user)">
+        <div class="user-card-container" *ngFor="let user of pageSlice" [hidden]="decider(user)">
             <div class="user-card" [style.background-color]="getColor(user.active)">
 
                     <h3>
@@ -23,15 +23,14 @@
                         <a mat-tab-link [routerLink]="['/users/company-info', user.id]" (click)="onSelect(user)">Company Info</a>
                     </nav>
             </div>
-        </div>        
+        </div>    
     </div>
-
-    <mat-paginator [length]="this.users$.length"
+    <mat-paginator [length]="this.users.length"
               [pageSize]="3"
-              [pageSizeOptions]="[3,5,10]"
+              [pageSizeOptions]="[3,6,9]"
               (page)="OnPageChange($event)"
               aria-label="Select page">
-    </mat-paginator>
+    </mat-paginator> 
 </div>
 
 <router-outlet></router-outlet>

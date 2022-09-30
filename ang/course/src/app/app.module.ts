@@ -14,6 +14,7 @@ import {MatTabsModule} from '@angular/material/tabs'
 import { AuthModule } from './auth/auth.module';
 import { UserModule } from './user/user.module';
 import { SharedModule } from './shared/shared.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { SharedModule } from './shared/shared.module';
     MatFormFieldModule,
     AuthModule,
     UserModule,
-    SharedModule
+    SharedModule,
+    HttpClientModule
   ],
   providers: [AuthGuard, AccountService],
   bootstrap: [AppComponent]

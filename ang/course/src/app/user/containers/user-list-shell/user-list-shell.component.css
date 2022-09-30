@@ -1,11 +1,23 @@
+.container-box{
+    width: 1200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-list{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .user-card{
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-
     border-radius: 5px;
-    
 }
 
 button{
@@ -15,6 +27,7 @@ button{
 .user-list{
     display: flex;
     gap: 3em;
+    flex-wrap: wrap;
 }
 
 .active-only-button{
@@ -57,4 +70,8 @@ a{
 
 h3{
     font-weight: 500;
+}
+
+mat-paginator{
+    margin-top: 50px;
 }
