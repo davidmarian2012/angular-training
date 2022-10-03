@@ -1,9 +1,15 @@
 <div class="container-box">
-    <h2>Users</h2>
+    <h2>All users</h2>
+
+    <form [formGroup]="searchForm" class="search-form">
+        <label class="label1">Find user:</label>
+        <input matInput placeholder="First Name" formControlName="firstName">
+    </form>
+
     <button mat-flat-button  class="active-only-button" (click)="changeShowOptions()">Toggle</button>
     <div class="user-list">
         <div class="user-card-container" *ngFor="let user of pageSlice" [hidden]="decider(user)">
-            <div class="user-card" [style.background-color]="getColor(user.active)">
+            <div class="user-card">
 
                     <h3>
                         User details
@@ -13,7 +19,7 @@
                     </h3>
 
                     <div>Name: {{user.firstname}} {{user.lastname}}</div>
-                    <div>Status: {{getStatus(user.active)}}</div>
+                    <div [style.color]="getColor(user.active)">Status: {{getStatus(user.active)}}</div>
 
                     <br/>
 

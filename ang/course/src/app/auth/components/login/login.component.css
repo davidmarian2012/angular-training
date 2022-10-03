@@ -15,17 +15,27 @@ input{
 }
 
 button{
+    margin-top: 20px;
+    font-size: 12px;
+    border: 0;
+    background-color: rgb(58, 105, 109);
     height: 30px;
     width: 100px;
     display: flex;
-    align-items: center;
     justify-content: center;
-    margin: 5px 0;
-    background-color: rgb(54, 54, 54);
-    border: 1px solid black;
-    border-radius: 3px;
-    color: #fff;
-    font-weight: 700;
+    align-items: center;
     cursor: pointer;
-    margin-top: 50px;
+    color: #fff;
+}
+
+
+.container{
+    background-color: rgb(206, 206, 206);
+    width: 300px;
+    height: 450px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 2px;
 }

@@ -15,6 +15,7 @@ import { CompanyInfoShellComponent } from './containers/company-info-shell/compa
 import {MatTabsModule} from '@angular/material/tabs';
 import { AgechangePipe } from './pipes/agechange.pipe'
 import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     MatIconModule,
     AppRoutingModule,
     MatTabsModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatFormFieldModule
   ],
   exports: [
     AddUserShellComponent,

@@ -3,7 +3,7 @@ import { PageEvent } from '@angular/material/paginator';
 import { map, Observable } from 'rxjs';
 import { User } from '../../interfaces/user';
 import { UserService } from '../../services/user.service';
-import { Info } from '../../interfaces/info';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-user-list-shell',
@@ -13,17 +13,21 @@ import { Info } from '../../interfaces/info';
 export class UserListShellComponent implements OnInit {
 
   users: User[] = [];
-  cardInfo$ = Observable<Info[]>;
+  users$: Observable<User[]>;
+
+  searchForm = new FormGroup({
+    firstName: new FormControl('')
+  })
 
   public pageSlice; 
 
   getColor(status: boolean): string{
     if(status == true)
     {
-      return "rgb(111, 158, 111)";
+      return "green";
     }
 
-    return "rgb(115, 117, 115)";
+    return "black";
   }
 
   getStatus(status: boolean): string{

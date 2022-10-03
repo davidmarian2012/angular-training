@@ -17,11 +17,20 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    border-radius: 5px;
+    background-color: rgb(206, 206, 206);
 }
 
 button{
     font-size: 12px;
+    border: 0;
+    background-color: rgb(58, 105, 109);
+    height: 30px;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: #fff;
 }
 
 .user-list{
@@ -30,34 +39,12 @@ button{
     flex-wrap: wrap;
 }
 
-.active-only-button{
-    height: 30px;
-    width: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 50px;
-    background-color: rgb(54, 54, 54);
-    border: 1px solid black;
-    border-radius: 3px;
-    color: #fff;
-    font-weight: 700;
-    cursor: pointer;
+.toggle-btn{
+    margin-bottom: 10px;
 }
 
-.toggle-btn{
-    height: 30px;
-    width: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 5px 0;
-    background-color: rgb(54, 54, 54);
-    border: 1px solid black;
-    border-radius: 3px;
-    color: #fff;
-    font-weight: 700;
-    cursor: pointer;
+.active-only-button{
+    margin: 10px 0 30px 0;
 }
 
 mat-icon{
@@ -74,4 +61,20 @@ h3{
 
 mat-paginator{
     margin-top: 50px;
+}
+
+label{
+    margin-bottom: 5px;
+}
+
+input{
+    padding: 10px;
+}
+
+.search-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
 }

@@ -4,6 +4,7 @@ import { Observable, Subject } from 'rxjs';
 import { User } from '../interfaces/user';
 import { USERS } from '../mocks/Users';
 import { map } from 'rxjs';
+import { UserDTO } from '../interfaces/UserDTO';
 
 @Injectable({
   providedIn: 'root'
@@ -24,10 +25,22 @@ export class UserService {
     return USERS;
   }
 
-  getUsersObs(){
-    return this.http.get('https://reqres.in/api/users').pipe(
-      map((response)=>{
-        return response;
+  getUsersObs(): Observable<User[]>{
+    return this.http.get<UserDTO>('https://reqres.in/api/users').pipe(
+      map((response) => {
+        return response.results.map((user) => {
+          return {
+            id: 1,
+            firstname: '',
+            lastname: '',
+            age: 1,
+            company: '',
+            department: '',
+            email: '',
+            gender: '',
+            active: true
+            }
+        })
       })
     )
   }

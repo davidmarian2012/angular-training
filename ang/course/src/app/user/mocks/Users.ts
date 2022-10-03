@@ -36,8 +36,8 @@ export const USERS: User[] = [
     },
     {
       id: 4,
-      firstname: 'Joe',
-      lastname: 'Benson',
+      firstname: 'User',
+      lastname: '4',
       age: 22,
       company: 'Google',
       department: 'backend',
@@ -46,9 +46,9 @@ export const USERS: User[] = [
       active: true
     },
     {
-      id: 4,
-      firstname: 'Joe',
-      lastname: 'Benson',
+      id: 5,
+      firstname: 'User',
+      lastname: '5',
       age: 22,
       company: 'Google',
       department: 'backend',
@@ -57,9 +57,9 @@ export const USERS: User[] = [
       active: true
     },
     {
-      id: 4,
-      firstname: 'Joe',
-      lastname: 'Benson',
+      id: 6,
+      firstname: 'User',
+      lastname: '6',
       age: 22,
       company: 'Google',
       department: 'backend',
