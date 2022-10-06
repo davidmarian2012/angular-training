@@ -4,7 +4,7 @@
         <label>
             First Name:
         </label>
-        <input type="text" formControlName="firstName" class="input-text">
+        <input type="text" formControlName="firstName" class="input-text" [(ngModel)]="fName">
         <div *ngIf="this.userform.get('firstName').errors?.['required']" class="red">
             First Name is required.
         </div>
@@ -14,7 +14,7 @@
         <label>
             Last Name:
         </label>
-        <input type="text" formControlName="lastName" class="input-text" required>
+        <input type="text" formControlName="lastName" class="input-text" [(ngModel)]="lName" required>
         <div *ngIf="this.userform.get('lastName').errors?.['required']" class="red">
             Last Name is required.
         </div>
@@ -63,7 +63,7 @@
         <label>
             E-mail address:
         </label>
-        <input type="text" formControlName="email" class="input-text">
+        <input type="text" formControlName="email" class="input-text" value="{{fName+lName}}@gmail.com">
         <div *ngIf="this.userform.get('email').errors?.['required']" class="red">
             E-mail is required.
         </div>

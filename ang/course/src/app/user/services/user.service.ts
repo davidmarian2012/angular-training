@@ -4,7 +4,7 @@ import { Observable, Subject } from 'rxjs';
 import { User } from '../interfaces/user';
 import { USERS } from '../mocks/Users';
 import { map } from 'rxjs';
-import { UserDTO } from '../interfaces/UserDTO';
+import { UserDTO } from '../interfaces/user';
 
 @Injectable({
   providedIn: 'root'
@@ -31,7 +31,7 @@ export class UserService {
         return response.results.map((user) => {
           return {
             id: 1,
-            firstname: '',
+            firstname: 'hey',
             lastname: '',
             age: 1,
             company: '',

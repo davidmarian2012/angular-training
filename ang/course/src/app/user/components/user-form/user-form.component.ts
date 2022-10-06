@@ -28,6 +28,9 @@ export class UserFormComponent implements OnInit {
   id = this.route.snapshot.params['id'];
   selecteduser = this.userService.getUserById(this.id);
 
+  fName:string = '';
+  lName:string = '';
+
   userform = new FormGroup<UserForm>({
     firstName: new FormControl('', [
       Validators.required

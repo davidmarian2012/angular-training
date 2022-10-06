@@ -15,6 +15,7 @@ import { AuthModule } from './auth/auth.module';
 import { UserModule } from './user/user.module';
 import { SharedModule } from './shared/shared.module';
 import { HttpClientModule } from '@angular/common/http';
+import { UnsavedGuard } from './user/services/unsaved.guard';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,7 @@ import { HttpClientModule } from '@angular/common/http';
     SharedModule,
     HttpClientModule
   ],
-  providers: [AuthGuard, AccountService],
+  providers: [AuthGuard, AccountService, UnsavedGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

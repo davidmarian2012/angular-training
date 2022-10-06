@@ -9,3 +9,8 @@ export interface User{
     gender: string;
     active: boolean;
 }
+
+export interface UserDTO extends User{
+    name: string;
+    results: string[];
+}

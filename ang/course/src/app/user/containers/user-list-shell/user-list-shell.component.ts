@@ -5,6 +5,11 @@ import { User } from '../../interfaces/user';
 import { UserService } from '../../services/user.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
+interface Info{
+  name: string;
+  status: string;
+}
+
 @Component({
   selector: 'app-user-list-shell',
   templateUrl: './user-list-shell.component.html',
@@ -19,7 +24,13 @@ export class UserListShellComponent implements OnInit {
     firstName: new FormControl('')
   })
 
-  public pageSlice; 
+  public pageSlice: User[]; 
+
+  ngOnInit(): void {
+    this.getUsers();
+    this.getUsers2();
+    this.pageSlice = this.users.slice(0,3);
+  }
 
   getColor(status: boolean): string{
     if(status == true)
@@ -62,17 +73,25 @@ export class UserListShellComponent implements OnInit {
     return !user.active;
   }
 
-  // getUsers(): void{
-  //   this.cardInfos$ = this.userService.getUsers()
-  //   .pipe(
-  //     map(users => users.map(u => {
-  //       return <Info>{
-  //         name: u.firstname,
-  //         status: u.active
-  //       }
-  //     }))
-  //   )
-  // }
+  getUsers2(): void{
+    this.users$ = this.userService.getUsersObs()
+    .pipe(
+      map(users => users.map(u => {
+        return<User>{
+            id: 1,
+            firstname: '',
+            lastname: '',
+            age: 1,
+            company: '',
+            department: '',
+            email: '',
+            gender: '',
+            active: true
+        }
+      }))
+    )
+    console.log(this.users$);
+  }
 
   getUsers(): void{
     this.users = this.userService.getUsers();
@@ -82,11 +101,6 @@ export class UserListShellComponent implements OnInit {
 
   onSelect(user: User): any{
     this.userService.currentUser = user;
-  }
-
-  ngOnInit(): void {
-    this.getUsers();
-    this.pageSlice = this.users.slice(0,3);
   }
 
 }
