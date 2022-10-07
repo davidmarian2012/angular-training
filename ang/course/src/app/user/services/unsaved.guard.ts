@@ -1,5 +1,5 @@
-import { Component, Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, CanDeactivate, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { Injectable } from '@angular/core';
+import { CanDeactivate } from '@angular/router';
 import { Observable } from 'rxjs';
 
 export interface ComponentCanDeactivate {
@@ -14,5 +14,4 @@ export class UnsavedGuard implements CanDeactivate<ComponentCanDeactivate> {
     return component.canDeactivate() ? 
     true: confirm('WARNING: You have unsaved changes. Press Cancel to go back and save these changes, or OK to lose these changes.');
   }
-  
 }
