@@ -16,7 +16,7 @@ const routes: Routes = [
     {path:'contact-info/:id', component: ContactInfoShellComponent},
     {path:'company-info/:id', component: CompanyInfoShellComponent}
   ]},
-  {path:'add', component: AddUserShellComponent, canActivate: [AuthGuard]},
+  {path:'add', component: AddUserShellComponent, canActivate: [AuthGuard], canDeactivate: [UnsavedGuard]},
   {path:'login', component: LoginComponent},
   {path:'register', component: RegisterComponent},
   {path:'edit/:id', component: EditUserShellComponent, canActivate: [AuthGuard], canDeactivate: [UnsavedGuard]},
