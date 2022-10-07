@@ -1,9 +1,11 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, HostListener } from '@angular/core';
 import { FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { User } from '../../interfaces/user';
+import { ComponentCanDeactivate } from '../../services/unsaved.guard';
 import { UserService } from '../../services/user.service'
+
 
 interface UserForm{
   firstName: FormControl<string>,
@@ -24,12 +26,6 @@ interface UserForm{
 export class UserFormComponent implements OnInit {
 
   @Input() newUser: boolean;
-  
-  id = this.route.snapshot.params['id'];
-  selecteduser = this.userService.getUserById(this.id);
-
-  fName:string = '';
-  lName:string = '';
 
   userform = new FormGroup<UserForm>({
     firstName: new FormControl('', [
@@ -58,6 +54,20 @@ export class UserFormComponent implements OnInit {
     ]),
     active: new FormControl(true),
   })
+
+  firstNameModel: string = this.userform.get('firstName')!.value!;
+  lastNameModel: string = this.userform.get('lastName')!.value!;
+
+  checkUnsavedChanges(): string {
+    if(this.newUser == false){
+      if(this.userform.get('firstName')!.value! != "firstNameModel")
+      return "unsaved first name";
+    }
+    return "ok";
+  }
+  
+  id = this.route.snapshot.params['id'];
+  selecteduser = this.userService.getUserById(this.id);
 
   doesEmailExist(emailControl: any): Promise<any> | Observable<any>{
     let foundEmail = false;
@@ -136,5 +146,6 @@ export class UserFormComponent implements OnInit {
       active: this.selecteduser.active
     });
   }
+
 
 }
