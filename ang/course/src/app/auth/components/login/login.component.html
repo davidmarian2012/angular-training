@@ -1,0 +1,17 @@
+<div class="container">
+    <h2>Login</h2>
+
+    <div [formGroup]="accountForm">
+        <div class="form-row">
+            <label>Username:</label>
+            <input formControlName="username">   
+            </div>
+
+            <div class="form-row">
+            <label>Password:</label>
+            <input formControlName="password">  
+        </div>  
+
+    </div>
+    <button mat-flat-button type="submit" (click)="tryLogin()">Login</button>
+</div>

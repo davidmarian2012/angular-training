@@ -1,0 +1,44 @@
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.form-label{
+    display: flex;
+    flex-direction: column;
+    width: 180px;
+}
+
+.form-radio{
+    width: 180px;
+    margin: 8px 0;
+}
+
+.input-text{
+    height: 25px;
+}
+
+select{
+    height: 30px;
+}
+
+button{
+    height: 30px;
+    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5px 0;
+    background-color: rgb(54, 54, 54);
+    border: 1px solid black;
+    border-radius: 3px;
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.red{
+    color:red;
+}
