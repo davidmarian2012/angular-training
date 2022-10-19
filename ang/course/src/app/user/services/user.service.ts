@@ -23,7 +23,7 @@ export class UserService {
 
   getUsersObs(): Observable<User[]>{
    
-    return this.http.get<UserDTO>(this._api + '?per_page=12')
+    return this.http.get<UserDTO>(this._api)
       .pipe(
         map((respoonse) => {
           return respoonse.data.map((user)=>{
