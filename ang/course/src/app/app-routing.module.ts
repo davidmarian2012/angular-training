@@ -20,8 +20,6 @@ const routes: Routes = [
   {path:'login', component: LoginComponent},
   {path:'register', component: RegisterComponent},
   {path:'edit/:id', component: EditUserShellComponent, canActivate: [AuthGuard], canDeactivate: [UnsavedGuard]},
-  // {path:'contact-info/:id', component: ContactInfoShellComponent},
-  // {path:'company-info/:id', component: CompanyInfoShellComponent},
   {path:'', redirectTo: '/login', pathMatch: 'full'}
 ];
 

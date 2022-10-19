@@ -12,5 +12,5 @@ export interface User{
 
 export interface UserDTO extends User{
     name: string;
-    results: string[];
+    data: any[];
 }

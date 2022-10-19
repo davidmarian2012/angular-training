@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { Observable, Subject, tap } from 'rxjs';
 import { User } from '../interfaces/user';
 import { USERS } from '../mocks/Users';
 import { map } from 'rxjs';
@@ -12,38 +12,41 @@ import { UserDTO } from '../interfaces/user';
 export class UserService {
 
   public currentUser: User;
-
-  public users$: Observable<User[]>;
+  _users: User[];
+  _api: string = 'https://reqres.in/api/users';
   
   constructor(private http: HttpClient) {}
 
-  // getUsers(): Observable<User[]>{
-  //   return this.users$;
+  // getUsers(): User[]{
+  //   return USERS;
   // }
 
-  getUsers(): User[]{
-    return USERS;
-  }
-
   getUsersObs(): Observable<User[]>{
-    return this.http.get<UserDTO>('https://reqres.in/api/users').pipe(
-      map((response) => {
-        return response.results.map((user) => {
-          return {
-            id: 1,
-            firstname: 'hey',
-            lastname: '',
-            age: 1,
-            company: '',
-            department: '',
-            email: '',
-            gender: '',
-            active: true
+   
+    return this.http.get<UserDTO>(this._api + '?per_page=12')
+      .pipe(
+        map((respoonse) => {
+          return respoonse.data.map((user)=>{
+            return {
+              id: user.id,
+              firstname: user.first_name,
+              lastname: user.last_name,
+              age: 25,
+              company: '',
+              department: '',
+              email: '',
+              gender: '',
+              active: true
             }
+          })
+        }),
+        tap((val) => {
+          this._users = val;
         })
-      })
     )
-  }
+  };
+
+
 
   saveUser(user: User): any{
     USERS.push(user);

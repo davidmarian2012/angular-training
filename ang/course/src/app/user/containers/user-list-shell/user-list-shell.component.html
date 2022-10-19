@@ -8,7 +8,7 @@
 
     <button mat-flat-button  class="active-only-button" (click)="changeShowOptions()">Toggle</button>
     <div class="user-list">
-        <div class="user-card-container" *ngFor="let user of pageSlice" [hidden]="decider(user)">
+        <div class="user-card-container" *ngFor="let user of users$ | async" [hidden]="decider(user)">
             <div class="user-card">
 
                     <h3>
@@ -31,7 +31,7 @@
             </div>
         </div>    
     </div>
-    <mat-paginator [length]="this.users.length"
+    <mat-paginator [length]="userCounts$ | async"
               [pageSize]="3"
               [pageSizeOptions]="[3,6,9]"
               (page)="OnPageChange($event)"
