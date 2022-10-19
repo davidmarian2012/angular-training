@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
-import { map, Observable } from 'rxjs';
+import { BehaviorSubject, map, Observable } from 'rxjs';
 import { User } from '../../interfaces/user';
 import { UserService } from '../../services/user.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
@@ -20,6 +20,9 @@ export class UserListShellComponent implements OnInit {
   users: User[] = [];
   users$: Observable<User[]>;
 
+  userCounts$: Observable<number>;
+  pageEvent: BehaviorSubject<PageEvent> = new BehaviorSubject({length: 12, pageIndex: 0, pageSize: 12, previousPageIndex: 0});
+
   searchForm = new FormGroup({
     firstName: new FormControl('')
   })
@@ -27,8 +30,12 @@ export class UserListShellComponent implements OnInit {
   public pageSlice: User[]; 
 
   ngOnInit(): void {
-    this.getUsers();
     this.getUsers2();
+
+    this.userCounts$ = this.users$.pipe(
+      map(cards=>cards.length)
+    );
+
     this.pageSlice = this.users.slice(0,3);
   }
 
@@ -50,13 +57,8 @@ export class UserListShellComponent implements OnInit {
     return "Inactive";
   }
 
-  OnPageChange(event: PageEvent){
-    const startIndex = event.pageIndex * event.pageSize;
-    let endIndex = startIndex + event.pageSize;
-    if(endIndex > this.users.length){
-      endIndex = this.users.length;
-    }
-    this.pageSlice = this.users.slice(startIndex, endIndex);
+  OnPageChange(event: PageEvent): void{
+   this.pageEvent.next(event);
   }
 
   showOnlyActive = false;
@@ -74,28 +76,12 @@ export class UserListShellComponent implements OnInit {
   }
 
   getUsers2(): void{
-    this.users$ = this.userService.getUsersObs()
-    .pipe(
-      map(users => users.map(u => {
-        return<User>{
-            id: 1,
-            firstname: '',
-            lastname: '',
-            age: 1,
-            company: '',
-            department: '',
-            email: '',
-            gender: '',
-            active: true
-        }
-      }))
-    )
-    console.log(this.users$);
+    this.users$ = this.userService.getUsersObs();
   }
 
-  getUsers(): void{
-    this.users = this.userService.getUsers();
-  }
+  // getUsers(): void{
+  //   this.users = this.userService.getUsers();
+  // }
 
   constructor(private userService: UserService) { }
 
